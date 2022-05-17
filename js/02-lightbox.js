@@ -1,8 +1,9 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
+
 const listGallery = document.querySelector('.gallery');
-const qwe = document.querySelector("a");
+
 listGallery.addEventListener('click', onClickImage);
 
 
@@ -15,15 +16,17 @@ const markup = galleryItems.map((image)=>
     />
 </a>` ).join('');
 listGallery.insertAdjacentHTML( 'beforeend', markup);
+const linkImageAll = listGallery.querySelectorAll(".gallery__item");
 
 function onClickImage(event){
     event.preventDefault();
    if(event.target.nodeName !== "IMG"){
        return; 
     }
-    console.log(event.target)
     
-    var lightbox = new SimpleLightbox(qwe, `${event.target}`);
+    
+    let lightbox = new SimpleLightbox('.gallery a');
+    lightbox.open();
     
      }
 
