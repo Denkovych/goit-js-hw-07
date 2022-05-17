@@ -9,6 +9,7 @@ const markup = galleryItems.map((image)=>
     class="gallery__image"
     src="${image.preview}"
     alt="${image.description}"
+    title="${image.description}"
     />
 </a>` ).join('');
 listGallery.insertAdjacentHTML( 'beforeend', markup);
@@ -17,9 +18,9 @@ listGallery.addEventListener('click', onClickImage);
 
 function onClickImage(event){
     event.preventDefault();
-    const lightbox = new SimpleLightbox('.gallery a');
+    const lightbox = new SimpleLightbox('.gallery a', {  captionDelay: 250,})
     
     
-     }
+}
 
 console.log(galleryItems);
