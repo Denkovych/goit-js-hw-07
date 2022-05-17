@@ -1,6 +1,8 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
+
 const listGallery = document.querySelector('.gallery');
+const qwe = document.querySelector("a");
 listGallery.addEventListener('click', onClickImage);
 
 
@@ -19,9 +21,9 @@ function onClickImage(event){
    if(event.target.nodeName !== "IMG"){
        return; 
     }
-    console.log(event.currentTarget)
+    console.log(event.target)
     
-    var lightbox = `${gallery__item}`.simpleLightbox( `${event.target}` );
+    var lightbox = new SimpleLightbox(qwe, `${event.target}`);
     
      }
 
