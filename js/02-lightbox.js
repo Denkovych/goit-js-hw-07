@@ -1,11 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
-
 const listGallery = document.querySelector('.gallery');
-
-listGallery.addEventListener('click', onClickImage);
-
+const linkImageAll = listGallery.querySelectorAll(".gallery__item");
 
 const markup = galleryItems.map((image)=>
 `<a class="gallery__item" href="${image.original}">
@@ -16,17 +12,13 @@ const markup = galleryItems.map((image)=>
     />
 </a>` ).join('');
 listGallery.insertAdjacentHTML( 'beforeend', markup);
-const linkImageAll = listGallery.querySelectorAll(".gallery__item");
+
+listGallery.addEventListener('click', onClickImage);
 
 function onClickImage(event){
     event.preventDefault();
-   if(event.target.nodeName !== "IMG"){
-       return; 
-    }
+    const lightbox = new SimpleLightbox('.gallery a');
     
-    
-    let lightbox = new SimpleLightbox('.gallery a');
-    lightbox.open();
     
      }
 
